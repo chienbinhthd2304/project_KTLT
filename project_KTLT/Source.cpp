@@ -330,3 +330,31 @@ void check_menu(int& kt) {
 	cout << "1.Continue!\n0.Exit!\n";
 	cin >> kt;
 }
+
+//Ham thay doi mat khau
+void Change_pass(string name_stu) {  //name_stu la ten cua sinh vien hay giao vu muon doi mat khau 
+	int dem = 0;
+	string name_file, temp;
+	name_file = name_stu + ".txt";
+	string* data;
+	fstream f;
+	f.open(name_file, ios::in);
+	while (!f.eof()) {
+		getline(f, temp);
+		dem++;
+	}
+	f.close();
+	f.open(name_file, ios::in);
+	data = new string[dem];
+	for (int i = 0; i < dem; i++) {
+		getline(f, data[i]);
+	}
+	f.close();
+	f.open(name_file, ios::out);
+	cout << "Enter new passwork: ";
+	getline(cin, data[0]);
+	for (int i = 0; i < dem; i++) {
+		f << data[i] << endl;
+	}
+	f.close();
+}

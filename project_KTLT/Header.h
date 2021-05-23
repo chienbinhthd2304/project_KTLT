@@ -23,5 +23,6 @@ struct Object
 
 void Menu_Login_Register_Teacher();
 void Login_Account_Student();
+void Change_pass(string name_stu);
 
 #endif // !_Header_h_
